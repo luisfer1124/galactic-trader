@@ -1,5 +1,3 @@
--- Populate data for the space game database
-
 -- Resource types
 INSERT INTO ResourceTypes (name) VALUES
 ('Metal'),
@@ -90,76 +88,101 @@ INSERT INTO PlanetResources (planet_name, resource_id, quantity) VALUES
 
 -- Players
 INSERT INTO Players (name, level) VALUES
-('Alice', 10),
-('Bob', 15),
-('Charlie', 8),
-('Diana', 12),
-('Elena', 5),
-('Frank', 7),
-('Grace', 20),
-('Henry', 3),
-('Ivy', 9),
-('Jack', 11);
+('Clementine', 10),
+('LuisFor', 15),
+('Johan', 8),
+('Graydon', 12),
+('LuisiFer', 5),
+('Cesar', 7),
+('Kim', 20),
+('Juan C', 3),
+('Joey', 9),
+('Olivia', 11),
+('Adam', 6),
+('Skyler', 14),
+('Trish', 4),
+('Angelica', 17);
 
 -- Active players
 INSERT INTO ActivePlayers (player_id, status, last_login) VALUES
-(1, 'online', NOW()),    -- Alice
-(2, 'offline', NOW() - INTERVAL '2 hours'),  -- Bob
-(3, 'online', NOW()),    -- Charlie
-(5, 'away', NOW() - INTERVAL '30 minutes'),  -- Elena
-(7, 'online', NOW()),    -- Grace
-(9, 'offline', NOW() - INTERVAL '1 day');    -- Ivy
+(1, 'online', NOW()),    -- Clementine
+(2, 'offline', NOW() - INTERVAL '2 hours'),  -- LuisFor
+(3, 'online', NOW()),    -- Johan
+(5, 'away', NOW() - INTERVAL '30 minutes'),  -- LuisiFer
+(7, 'online', NOW()),    -- Kim
+(9, 'offline', NOW() - INTERVAL '1 day'),    -- Joey
+(12, 'online', NOW() - INTERVAL '10 minutes'),  -- Skyler
+(14, 'away', NOW() - INTERVAL '45 minutes');    -- Angelica
 
 -- Premium players
 INSERT INTO PremiumPlayers (player_id, subscription_type, expiry_date) VALUES
-(2, 'gold', CURRENT_DATE + INTERVAL '90 days'),  -- Bob
-(3, 'silver', CURRENT_DATE + INTERVAL '30 days'), -- Charlie
-(4, 'gold', CURRENT_DATE + INTERVAL '60 days'),   -- Diana
-(7, 'platinum', CURRENT_DATE + INTERVAL '180 days'), -- Grace
-(10, 'silver', CURRENT_DATE + INTERVAL '15 days'); -- Jack
+(2, 'gold', CURRENT_DATE + INTERVAL '90 days'),  -- LuisFor
+(3, 'silver', CURRENT_DATE + INTERVAL '30 days'), -- Johan
+(4, 'gold', CURRENT_DATE + INTERVAL '60 days'),   -- Graydon
+(7, 'platinum', CURRENT_DATE + INTERVAL '180 days'), -- Kim
+(10, 'silver', CURRENT_DATE + INTERVAL '15 days'), -- Olivia
+(13, 'gold', CURRENT_DATE + INTERVAL '45 days'),   -- Trish
+(14, 'platinum', CURRENT_DATE + INTERVAL '120 days'); -- Angelica
 
 -- Player explorations
 INSERT INTO PlayerExplorations (player_id, planet_name, exploration_date) VALUES
-(1, 'Earth', NOW() - INTERVAL '10 days'),
-(1, 'Mars', NOW() - INTERVAL '5 days'),
-(2, 'Venus', NOW() - INTERVAL '15 days'),
-(2, 'Mars', NOW() - INTERVAL '8 days'),
-(2, 'Jupiter', NOW() - INTERVAL '2 days'),
-(3, 'Earth', NOW() - INTERVAL '20 days'),
-(4, 'Mercury', NOW() - INTERVAL '12 days'),
-(4, 'Venus', NOW() - INTERVAL '9 days'),
-(4, 'Earth', NOW() - INTERVAL '6 days'),
-(5, 'Earth', NOW() - INTERVAL '30 days'),
-(7, 'Mercury', NOW() - INTERVAL '25 days'),
-(7, 'Venus', NOW() - INTERVAL '20 days'),
-(7, 'Earth', NOW() - INTERVAL '15 days'),
-(7, 'Mars', NOW() - INTERVAL '10 days'),
-(7, 'Jupiter', NOW() - INTERVAL '5 days'),
-(7, 'Europa', NOW() - INTERVAL '2 days'),
-(9, 'Earth', NOW() - INTERVAL '8 days'),
-(10, 'Mars', NOW() - INTERVAL '14 days');
+(1, 'Earth', NOW() - INTERVAL '10 days'),       -- Clementine
+(1, 'Mars', NOW() - INTERVAL '5 days'),         -- Clementine
+(2, 'Venus', NOW() - INTERVAL '15 days'),       -- LuisFor
+(2, 'Mars', NOW() - INTERVAL '8 days'),         -- LuisFor
+(2, 'Jupiter', NOW() - INTERVAL '2 days'),      -- LuisFor
+(3, 'Earth', NOW() - INTERVAL '20 days'),       -- Johan
+(4, 'Mercury', NOW() - INTERVAL '12 days'),     -- Graydon
+(4, 'Venus', NOW() - INTERVAL '9 days'),        -- Graydon
+(4, 'Earth', NOW() - INTERVAL '6 days'),        -- Graydon
+(5, 'Earth', NOW() - INTERVAL '30 days'),       -- LuisiFer
+(6, 'Mars', NOW() - INTERVAL '18 days'),        -- Cesar
+(7, 'Mercury', NOW() - INTERVAL '25 days'),     -- Kim
+(7, 'Venus', NOW() - INTERVAL '20 days'),       -- Kim
+(7, 'Earth', NOW() - INTERVAL '15 days'),       -- Kim
+(7, 'Mars', NOW() - INTERVAL '10 days'),        -- Kim
+(7, 'Jupiter', NOW() - INTERVAL '5 days'),      -- Kim
+(7, 'Europa', NOW() - INTERVAL '2 days'),       -- Kim
+(9, 'Earth', NOW() - INTERVAL '8 days'),        -- Joey
+(10, 'Mars', NOW() - INTERVAL '14 days'),       -- Olivia
+(11, 'Earth', NOW() - INTERVAL '11 days'),      -- Adam
+(12, 'Venus', NOW() - INTERVAL '22 days'),      -- Skyler
+(13, 'Jupiter', NOW() - INTERVAL '17 days'),    -- Trish
+(14, 'Mercury', NOW() - INTERVAL '28 days'),    -- Angelica
+(14, 'Earth', NOW() - INTERVAL '21 days'),      -- Angelica
+(14, 'Europa', NOW() - INTERVAL '7 days');      -- Angelica
 
 -- Player inventory
 INSERT INTO PlayerInventory (player_id, resource_id, quantity) VALUES
-(1, 1, 100),   -- Alice has 100 Iron
-(1, 7, 50),    -- Alice has 50 Oxygen
-(1, 10, 30),   -- Alice has 30 Water
-(2, 2, 80),    -- Bob has 80 Copper
-(2, 3, 20),    -- Bob has 20 Gold
-(2, 9, 40),    -- Bob has 40 Methane
-(3, 1, 60),    -- Charlie has 60 Iron
-(3, 10, 45),   -- Charlie has 45 Water
-(3, 16, 70),   -- Charlie has 70 Wood
-(4, 3, 15),    -- Diana has 15 Gold
-(4, 5, 25),    -- Diana has 25 Titanium
-(5, 16, 90),   -- Elena has 90 Wood
-(5, 17, 65),   -- Elena has 65 Fiber
-(7, 1, 200),   -- Grace has 200 Iron
-(7, 2, 150),   -- Grace has 150 Copper
-(7, 3, 50),    -- Grace has 50 Gold
-(7, 5, 75),    -- Grace has 75 Titanium
-(7, 7, 100),   -- Grace has 100 Oxygen
-(7, 10, 80),   -- Grace has 80 Water
-(7, 14, 5),    -- Grace has 5 Diamond
-(9, 10, 60),   -- Ivy has 60 Water
-(10, 1, 90);   -- Jack has 90 Iron
+(1, 1, 100),   -- Clementine has 100 Iron
+(1, 7, 50),    -- Clementine has 50 Oxygen
+(1, 10, 30),   -- Clementine has 30 Water
+(2, 2, 80),    -- LuisFor has 80 Copper
+(2, 3, 20),    -- LuisFor has 20 Gold
+(2, 9, 40),    -- LuisFor has 40 Methane
+(3, 1, 60),    -- Johan has 60 Iron
+(3, 10, 45),   -- Johan has 45 Water
+(3, 16, 70),   -- Johan has 70 Wood
+(4, 3, 15),    -- Graydon has 15 Gold
+(4, 5, 25),    -- Graydon has 25 Titanium
+(5, 16, 90),   -- LuisiFer has 90 Wood
+(5, 17, 65),   -- LuisiFer has 65 Fiber
+(6, 1, 45),    -- Cesar has 45 Iron
+(6, 10, 35),   -- Cesar has 35 Water
+(7, 1, 200),   -- Kim has 200 Iron
+(7, 2, 150),   -- Kim has 150 Copper
+(7, 3, 50),    -- Kim has 50 Gold
+(7, 5, 75),    -- Kim has 75 Titanium
+(7, 7, 100),   -- Kim has 100 Oxygen
+(7, 10, 80),   -- Kim has 80 Water
+(7, 14, 5),    -- Kim has 5 Diamond
+(9, 10, 60),   -- Joey has 60 Water
+(10, 1, 90),   -- Olivia has 90 Iron
+(11, 16, 110), -- Adam has 110 Wood
+(12, 2, 65),   -- Skyler has 65 Copper
+(12, 7, 75),   -- Skyler has 75 Oxygen
+(13, 3, 25),   -- Trish has 25 Gold
+(14, 1, 150),  -- Angelica has 150 Iron
+(14, 3, 40),   -- Angelica has 40 Gold
+(14, 7, 85),   -- Angelica has 85 Oxygen
+(14, 10, 55);  -- Angelica has 55 Water
